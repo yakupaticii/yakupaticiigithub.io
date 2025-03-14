@@ -43,4 +43,63 @@ document.addEventListener('DOMContentLoaded', () => {
             navLinks.classList.remove('active');
         }
     });
+    
+    // Animated Code Text
+    const animatedCode = document.getElementById('animated-code');
+    if (animatedCode) {
+        const codeSnippets = [
+            '&lt;code&gt;',
+            'function()',
+            'const data =',
+            'import ML',
+            'while(true)',
+            'if(coding)',
+            'for(i=0;i++)',
+            'AI.train()',
+            'ML.predict()',
+            '&lt;/code&gt;'
+        ];
+        
+        let currentIndex = 0;
+        
+        // Function to update the code text
+        function updateCodeText() {
+            // Fade out
+            animatedCode.style.opacity = '0';
+            
+            setTimeout(() => {
+                // Update text
+                currentIndex = (currentIndex + 1) % codeSnippets.length;
+                animatedCode.innerHTML = codeSnippets[currentIndex];
+                
+                // Fade in
+                animatedCode.style.opacity = '1';
+            }, 500);
+        }
+        
+        // Set initial text
+        animatedCode.innerHTML = codeSnippets[0];
+        
+        // Start the animation cycle
+        setInterval(updateCodeText, 3000);
+        
+        // Add typing effect when hovering
+        const codeAnimation = document.querySelector('.code-animation');
+        if (codeAnimation) {
+            codeAnimation.addEventListener('mouseenter', () => {
+                const currentText = animatedCode.innerHTML;
+                animatedCode.innerHTML = '';
+                
+                let i = 0;
+                const typingEffect = setInterval(() => {
+                    if (i < currentText.length) {
+                        animatedCode.innerHTML += currentText.charAt(i);
+                        i++;
+                    } else {
+                        clearInterval(typingEffect);
+                    }
+                }, 50);
+            });
+        }
+    }
 }); 
