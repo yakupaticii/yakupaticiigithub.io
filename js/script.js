@@ -1,5 +1,6 @@
 // Hero section animations
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM fully loaded - initializing animations');
     const heroText = document.querySelector('.hero-text');
     const heroImage = document.querySelector('.hero-image');
     
@@ -46,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Animated Code Text
     const animatedCode = document.getElementById('animated-code');
+    console.log('Animated code element:', animatedCode);
     if (animatedCode) {
         const codeSnippets = [
             '&lt;code&gt;',
@@ -60,10 +62,12 @@ document.addEventListener('DOMContentLoaded', () => {
             '&lt;/code&gt;'
         ];
         
+        console.log('Code snippets array initialized:', codeSnippets);
         let currentIndex = 0;
         
         // Function to update the code text
         function updateCodeText() {
+            console.log('Updating code text, current index:', currentIndex);
             // Fade out
             animatedCode.style.opacity = '0';
             
@@ -71,6 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Update text
                 currentIndex = (currentIndex + 1) % codeSnippets.length;
                 animatedCode.innerHTML = codeSnippets[currentIndex];
+                console.log('New code text:', codeSnippets[currentIndex]);
                 
                 // Fade in
                 animatedCode.style.opacity = '1';
@@ -79,8 +84,10 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Set initial text
         animatedCode.innerHTML = codeSnippets[0];
+        console.log('Initial code text set:', codeSnippets[0]);
         
         // Start the animation cycle
+        console.log('Starting animation interval');
         setInterval(updateCodeText, 3000);
         
         // Add typing effect when hovering
