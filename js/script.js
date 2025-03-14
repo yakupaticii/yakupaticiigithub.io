@@ -45,52 +45,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     
-    // Animated Code Text
+    // Animated Code Text - simplified to only show "yakup atıcı"
     const animatedCode = document.getElementById('animated-code');
     console.log('Animated code element:', animatedCode);
     if (animatedCode) {
-        // Create text content directly without HTML entities
-        const codeSnippets = [
-            'yakup atıcı',
-            'yakup atıcı',
-            'yakup atıcı',
-            'yakup atıcı',
-            'yakup atıcı'
-        ];
-        
-        console.log('Code snippets array initialized:', codeSnippets);
-        let currentIndex = 0;
-        
-        // Function to update the code text
-        function updateCodeText() {
-            console.log('Updating code text, current index:', currentIndex);
-            // Fade out
-            animatedCode.style.opacity = '0';
-            
-            setTimeout(() => {
-                // Update text - use textContent instead of innerHTML
-                currentIndex = (currentIndex + 1) % codeSnippets.length;
-                animatedCode.textContent = codeSnippets[currentIndex];
-                console.log('New code text:', codeSnippets[currentIndex]);
-                
-                // Fade in
-                animatedCode.style.opacity = '1';
-            }, 500);
-        }
-        
-        // Set initial text - use textContent instead of innerHTML
-        animatedCode.textContent = codeSnippets[0];
-        console.log('Initial code text set:', codeSnippets[0]);
-        
-        // Start the animation cycle
-        console.log('Starting animation interval');
-        setInterval(updateCodeText, 3000);
+        // Set fixed text to "yakup atıcı"
+        animatedCode.textContent = 'yakup atıcı';
+        console.log('Fixed text set:', animatedCode.textContent);
         
         // Add typing effect when hovering
         const codeAnimation = document.querySelector('.code-animation');
         if (codeAnimation) {
             codeAnimation.addEventListener('mouseenter', () => {
-                const currentText = animatedCode.textContent;
+                const currentText = 'yakup atıcı';
                 animatedCode.textContent = '';
                 
                 let i = 0;
