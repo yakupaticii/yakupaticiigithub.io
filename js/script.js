@@ -49,8 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const animatedCode = document.getElementById('animated-code');
     console.log('Animated code element:', animatedCode);
     if (animatedCode) {
+        // Create text content directly without HTML entities
         const codeSnippets = [
-            '&lt;code&gt;',
+            '<code>',
             'function()',
             'const data =',
             'import ML',
@@ -59,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'for(i=0;i++)',
             'AI.train()',
             'ML.predict()',
-            '&lt;/code&gt;'
+            '</code>'
         ];
         
         console.log('Code snippets array initialized:', codeSnippets);
@@ -72,9 +73,9 @@ document.addEventListener('DOMContentLoaded', () => {
             animatedCode.style.opacity = '0';
             
             setTimeout(() => {
-                // Update text
+                // Update text - use textContent instead of innerHTML
                 currentIndex = (currentIndex + 1) % codeSnippets.length;
-                animatedCode.innerHTML = codeSnippets[currentIndex];
+                animatedCode.textContent = codeSnippets[currentIndex];
                 console.log('New code text:', codeSnippets[currentIndex]);
                 
                 // Fade in
@@ -82,8 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 500);
         }
         
-        // Set initial text
-        animatedCode.innerHTML = codeSnippets[0];
+        // Set initial text - use textContent instead of innerHTML
+        animatedCode.textContent = codeSnippets[0];
         console.log('Initial code text set:', codeSnippets[0]);
         
         // Start the animation cycle
@@ -94,13 +95,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const codeAnimation = document.querySelector('.code-animation');
         if (codeAnimation) {
             codeAnimation.addEventListener('mouseenter', () => {
-                const currentText = animatedCode.innerHTML;
-                animatedCode.innerHTML = '';
+                const currentText = animatedCode.textContent;
+                animatedCode.textContent = '';
                 
                 let i = 0;
                 const typingEffect = setInterval(() => {
                     if (i < currentText.length) {
-                        animatedCode.innerHTML += currentText.charAt(i);
+                        animatedCode.textContent += currentText.charAt(i);
                         i++;
                     } else {
                         clearInterval(typingEffect);
