@@ -51,16 +51,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (animatedCode) {
         // Create text content directly without HTML entities
         const codeSnippets = [
-            '<code>',
-            'function()',
-            'const data =',
-            'import ML',
-            'while(true)',
-            'if(coding)',
-            'for(i=0;i++)',
-            'AI.train()',
-            'ML.predict()',
-            '</code>'
+            'yakup atıcı',
+            'yakup atıcı',
+            'yakup atıcı',
+            'yakup atıcı',
+            'yakup atıcı'
         ];
         
         console.log('Code snippets array initialized:', codeSnippets);
